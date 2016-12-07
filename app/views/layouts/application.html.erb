@@ -9,7 +9,18 @@
   </head>
 
   <body>
-    <%= nav_bar brand: "Controle de Estoque", brand_link: root_url %>
+    <%= nav_bar brand: "Controle de Estoque", brand_link: root_url do%>
+    <%= form_tag nova_venda_path, class: "navbar-form" do%>
+      <% button_to "Novo Pedido", nil, class: "form-control" %>
+    <%end%>
+      <%= form_tag busca_produto_path, method: :get, class: "navbar-form navbar-right" do %>
+        <div class="form-group">
+          <%= text_field_tag :nome, nil, class:"form-control"%>
+          <%= button_to "Buscar", nil, class: "btn btn-default" %>
+        </div>
+      <%end%>
+
+    <%end%>
     <div class="container"
       <%= yield %>
     </div>
