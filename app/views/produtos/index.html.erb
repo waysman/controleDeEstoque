@@ -1,5 +1,8 @@
 <html>
 <body>
+  <% if flash[:notice] %>
+    <div class="alert alert-success" role="alert"><%= flash[:notice]%></div>
+  <% end %>
 
 
 

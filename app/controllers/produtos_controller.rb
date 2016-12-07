@@ -4,11 +4,21 @@ class ProdutosController < ApplicationController
     @produtos = Produto.order :nome
   end
 
+  def new
+    @produto = Produto.new
+  end
+
   def create
 
     valores = params.require(:produto).permit :nome, :descricao, :quantidade, :preco
-    produto = Produto.create valores
-    redirect_to root_url
+    @produto = Produto.new valores
+    if @produto.save
+      flash[:notice] = "Produto salvo com sucesso"
+      redirect_to root_url
+    else
+      render :new
+    end
+
   end
   def destroy
     id = params[:id]

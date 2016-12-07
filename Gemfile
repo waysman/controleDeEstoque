@@ -17,6 +17,8 @@ gem 'coffee-rails', '~> 4.2'
 # gem 'therubyracer', platforms: :ruby
 gem 'twitter-bootstrap-rails'
 
+gem 'rails-i18n', '~> 5.0.0' # For 5.0.x
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
