@@ -20,6 +20,22 @@ class ProdutosController < ApplicationController
     end
 
   end
+  def edit
+    id = params[:id]
+    @produto = Produto.find(id)
+    render :new
+  end
+  def update
+    id = params[:id]
+    @produto = Produto.find(id)
+    valores = params.require(:produto).permit :nome, :preco, :descricao, :quantidade
+    if @produto.update valores
+      flash[:notice] = "Produto atualizado com sucesso"
+      redirect_to root_url
+    else
+      render :new
+    end
+  end
   def destroy
     id = params[:id]
     Produto.destroy id
