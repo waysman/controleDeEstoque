@@ -1,0 +1,31 @@
+<html>
+<body>
+
+
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+            <th>Quantidade</th>
+            <th>Preço</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @produtos.each do |produto| %>
+        <tr>
+            <td><%= produto.nome %></td>
+            <td><%= produto.descricao %></td>
+            <td><%= produto.quantidade %></td>
+            <td><%= produto.preco %></td>
+            <td><%= button_to "Remover", produto, method: :delete, class: "btn btn-danger", data: {confirm: "Tem certeza que deseja remover?"} %>
+        </tr>
+        <% end %>
+    </tbody>
+</table>
+<%= link_to "Criar novo produto", new_produto_path %>
+
+</body>
+</html>
