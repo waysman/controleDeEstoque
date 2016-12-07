@@ -23,11 +23,12 @@
             <td><%= produto.preco %></td>
             <td><%= produto.id %></td>
             <td><%= button_to "Remover", produto, method: :delete, class: "btn btn-danger", data: {confirm: "Tem certeza que deseja remover?"} %>
+            <td><%= link_to "Alterar", edit_produto_path(produto), class:"btn btn-default" %>
         </tr>
         <% end %>
     </tbody>
 </table>
-<%= link_to "Criar novo produto", new_produto_path %>
+<%= link_to "Criar novo produto", new_produto_path, class:"btn btn-primary"%>
 
 </body>
 </html>
