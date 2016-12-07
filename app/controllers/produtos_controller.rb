@@ -23,7 +23,7 @@ class ProdutosController < ApplicationController
   def edit
     id = params[:id]
     @produto = Produto.find(id)
-    render :new
+    render :alterar
   end
   def update
     id = params[:id]
@@ -33,7 +33,7 @@ class ProdutosController < ApplicationController
       flash[:notice] = "Produto atualizado com sucesso"
       redirect_to root_url
     else
-      render :new
+      render :alterar
     end
   end
   def destroy
@@ -42,11 +42,9 @@ class ProdutosController < ApplicationController
     redirect_to root_url
   end
   def busca
-    nome = "%{params[:nome]}%"
+    nome = params[:nome]
     @produtos = Produto.where "nome like ?", nome
   end
-  def show
 
-  end
 
 end

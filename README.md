@@ -1,24 +1,19 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+* aplicativo simples de controle de estoque
 
-* Ruby version
+* Necessário para executar:
 
-* System dependencies
+Ter o rails 5.0 instalado.
 
-* Configuration
+* como executar:
 
-* Database creation
+Fazer download dos arquivos no git
+Abrir a pasta do projeto
+Executar o comando: bundle install para instalar a gems
+Executar o comando: rails server, para executar o servidor
+abrir no navegador o endereço: localhost:3000
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
 
 * ...
