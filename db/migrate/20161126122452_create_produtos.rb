@@ -5,7 +5,6 @@ class CreateProdutos < ActiveRecord::Migration[5.0]
       t.text :descricao
       t.integer :quantidade
       t.decimal :preco
-      t.integer :id
       t.timestamps
     end
   end
