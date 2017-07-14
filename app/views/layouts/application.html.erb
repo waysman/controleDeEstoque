@@ -9,6 +9,7 @@
   </head>
 
   <body>
+
     <%= nav_bar brand: "Controle de Estoque", brand_link: root_url do%>
       <%= form_tag busca_produto_path, method: :get, class: "navbar-form navbar-right" do %>
         <div class="form-group">
@@ -19,6 +20,12 @@
 
     <%end%>
     <div class="container"
+    <% if notice %>
+      <p class="alert alert-success"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-danger"><%= alert %></p>
+    <% end %>
       <%= yield %>
     </div>
   </body>
