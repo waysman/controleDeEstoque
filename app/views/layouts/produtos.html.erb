@@ -10,6 +10,16 @@
 
   <body>
 
+    <%= nav_bar brand: "Controle de Estoque", brand_link: produtos_url do%>
+      <%= form_tag busca_produto_path, method: :get, class: "navbar-form navbar-right" do %>
+        <div class="form-group">
+          <%= text_field_tag :nome, nil, class:"form-control"%>
+          <%= button_to "Buscar", nil, class: "btn btn-default" %>
+        </div>
+      <%end%>
+
+    <%end%>
+    <div class="container"
     <% if notice %>
       <p class="alert alert-success"><%= notice %></p>
     <% end %>

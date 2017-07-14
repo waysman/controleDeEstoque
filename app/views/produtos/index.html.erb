@@ -1,11 +1,5 @@
 <html>
 <body>
-  <% if flash[:notice] %>
-    <div class="alert alert-success" role="alert"><%= flash[:notice]%></div>
-  <% end %>
-
-
-
 
 <table class="table table-bordered">
     <thead>
@@ -32,6 +26,8 @@
     </tbody>
 </table>
 <%= button_to "Criar novo produto", new_produto_path, method: :get, class:"btn btn-primary" %>
+
+<%= link_to "Logout", destroy_user_session_path, method: :delete %>
 
 </body>
 </html>

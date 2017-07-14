@@ -1,4 +1,6 @@
 class ProdutosController < ApplicationController
+  before_action :authenticate_user!
+
 
   def index
     @produtos = Produto.order :nome
