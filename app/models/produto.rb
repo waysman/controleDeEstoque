@@ -1,5 +1,7 @@
 class Produto < ApplicationRecord
 
+  belongs_to :user
+
   validates :quantidade, presence: true
   validates :preco, presence: true
 

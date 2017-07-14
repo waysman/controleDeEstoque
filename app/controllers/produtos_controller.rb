@@ -5,13 +5,13 @@ class ProdutosController < ApplicationController
   end
 
   def new
-    @produto = Produto.new
+    @produto = current_user.produtos.build
   end
 
   def create
 
     valores = params.require(:produto).permit :nome, :descricao, :quantidade, :preco
-    @produto = Produto.new valores
+    @produto = current_user.produtos.build valores
     if @produto.save
       flash[:notice] = "Produto salvo com sucesso"
       redirect_to root_url
