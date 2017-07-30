@@ -4,7 +4,7 @@ class ProdutosController < ApplicationController
 
   def index
     user = current_user
-    @produtos = Produto.where "user_id like ?", user.id
+    @produtos = Produto.where "user_id" == user.id
 
   end
 
@@ -54,7 +54,7 @@ class ProdutosController < ApplicationController
   def busca
     user = current_user
     @nome = params[:nome]
-    @produtos = Produto.where(["nome like ?", "%#{@nome}%"]).where("user_id like ?", user.id)
+    @produtos = Produto.where(["nome like ?", "%#{@nome}%"]).where "user_id" == user.id
   end
 
 
