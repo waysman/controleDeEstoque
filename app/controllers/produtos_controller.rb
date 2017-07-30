@@ -3,7 +3,9 @@ class ProdutosController < ApplicationController
 
 
   def index
-    @produtos = Produto.order :nome
+    user = current_user
+    @produtos = Produto.where "user_id like ?", user.id
+
   end
 
   def new
@@ -16,16 +18,22 @@ class ProdutosController < ApplicationController
     @produto = current_user.produtos.build valores
     if @produto.save
       flash[:notice] = "Produto salvo com sucesso"
-      redirect_to root_url
+      redirect_to produtos_path
     else
       render :new
     end
 
   end
+
   def edit
+    user = current_user
     id = params[:id]
     @produto = Produto.find(id)
-    render :alterar
+    if user.id == @produto.user_id
+      render :alterar
+    else
+      head :forbidden
+    end
   end
   def update
     id = params[:id]
@@ -44,8 +52,9 @@ class ProdutosController < ApplicationController
     redirect_to root_url
   end
   def busca
+    user = current_user
     @nome = params[:nome]
-    @produtos = Produto.where "nome like ?", "%#{@nome}%"
+    @produtos = Produto.where(["nome like ?", "%#{@nome}%"]).where("user_id like ?", user.id)
   end
 
 
