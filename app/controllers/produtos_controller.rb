@@ -44,8 +44,8 @@ class ProdutosController < ApplicationController
     redirect_to root_url
   end
   def busca
-    nome = params[:nome]
-    @produtos = Produto.where "nome like ?", nome
+    @nome = params[:nome]
+    @produtos = Produto.where "nome like ?", "%#{@nome}%"
   end
 
 
