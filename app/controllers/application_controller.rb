@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  before_filter :set_cache_buster
+  before_action :set_cache_buster
 
   protect_from_forgery with: :exception
 
