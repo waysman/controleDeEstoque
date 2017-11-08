@@ -16,6 +16,6 @@ deploy:
   provider: heroku
 
   app:
-    master: distribuidoraapi
+    master: controleDeEstoque
   run:
     - "rake db:migrate"
